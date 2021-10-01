@@ -1,0 +1,25 @@
+* {
+    text-align: center;
+}
+
+/* Declare css custom variable inside root so that it is in global scope*/
+/* Here we set the variables that we will be able to change inside our js file*/
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
+.container {
+        height: 400px;
+        width: 400px;
+        display: grid;
+        /* explicitly setting an amount of columns and rows to each take up an equal fraction of available space*/
+        /* the amount of columns and rows to make is what amount our var is equal to, without our js code it will stay equal to 1*/
+        grid-template-columns: repeat(var(--grid-cols), 1fr);
+        grid-template-rows: repeat(var(--grid-rows), 1fr);
+}
+
+.grid-item {
+    border: 1px solid black;
+    text-align: center;
+}
