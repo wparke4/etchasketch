@@ -9,7 +9,7 @@
     --grid-rows: 1;
 }
 
-.container {
+.cellContainer {
         height: 400px;
         width: 400px;
         display: grid;
@@ -25,6 +25,14 @@
 }
 
 /* class added when a cell is hovered over*/
-.hovering {
+.eraser {
+    background-color: white;
+}
+
+.black {
     background-color: black;
+}
+
+.random {
+    
 }
