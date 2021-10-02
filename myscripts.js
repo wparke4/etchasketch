@@ -11,14 +11,14 @@ function makeRows(rows, cols) {
         //making the new div created (named cell) to be a child of the container div 
         //also applying the grid-item class and therefore all of its styling to the cell divs
         container.appendChild(cell).className = "grid-item";
+        cell.addEventListener('mouseover', () => {
+            cell.classList.add('hovering');
+        })
     };
 };
 
-/* To-Do: 
-    Add Event Listeners for each cell that has been created
-        listening for mouse hover over the cell 
-        handler will then change the color of the cell by adding a different class to the cell 
 
+/* To-Do: 
     Allow user to select amount of cells to make
         either allow them to select the amount of cells (values need to be perfect squares)
             or

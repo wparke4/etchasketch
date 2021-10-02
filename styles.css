@@ -23,3 +23,8 @@
     border: 1px solid black;
     text-align: center;
 }
+
+/* class added when a cell is hovered over*/
+.hovering {
+    background-color: black;
+}
