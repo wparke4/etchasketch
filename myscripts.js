@@ -3,6 +3,7 @@ const eraserButton = document.getElementById('eraserButton');
 const blackButton = document.getElementById('blackButton');
 const randButton = document.getElementById('randButton');
 const resetButton = document.getElementById('resetButton');
+const rainbowButton = document.getElementById('rainbowButton');
 
 let r = 0;
 let g = 0;
@@ -21,10 +22,15 @@ blackButton.addEventListener('click', () => {
 })
 
 randButton.addEventListener('click', () => {
-    r = Math.floor(Math.random() * 255);
-    g = Math.floor(Math.random() * 255);
-    b = Math.floor(Math.random() * 255);
+    r = randomNumber();
+    g = randomNumber();
+    b = randomNumber();
 })
+
+function randomNumber() {
+    let number = Math.floor(Math.random() * 255);
+    return number;
+}
 
 function makeRows(rows, cols) {
     //set the css variables (--grid-rows) equal to the argument passed into this function
@@ -41,6 +47,19 @@ function makeRows(rows, cols) {
         //when cell is hovered, adding class of hovering
         cell.addEventListener('mouseover', () => {
             cell.style.backgroundColor = "rgb("+ r +","+ g +","+ b +")";
+        })
+
+        rainbowButton.addEventListener('click', () => {
+            cell.addEventListener('mouseover', () => {
+                r = randomNumber();
+                g = randomNumber();
+                b = randomNumber();
+                cell.style.backgroundColor = "rgb("+ r +","+ g +","+ b +")";
+            })
+        })
+
+        resetButton.addEventListener('click', () => {
+            cell.style.backgroundColor = 'white';
         })
     };
 };
