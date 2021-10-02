@@ -15,8 +15,8 @@ body {
 }
 
 .cellContainer {
-        height: 400px;
-        width: 400px;
+        height: 500px;
+        width: 500px;
         display: grid;
         /* explicitly setting an amount of columns and rows to each take up an equal fraction of available space*/
         /* the amount of columns and rows to make is what amount our var is equal to, without our js code it will stay equal to 1*/

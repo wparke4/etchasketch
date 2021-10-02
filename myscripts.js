@@ -44,10 +44,6 @@ function makeRows(rows, cols) {
         //also applying the grid-item class and therefore all of its styling to the cell divs
         container.appendChild(cell);
         cell.classList.add('grid-item');
-        //when cell is hovered, adding class of hovering
-        cell.addEventListener('mouseover', () => {
-            cell.style.backgroundColor = "rgb("+ r +","+ g +","+ b +")";
-        })
 
         rainbowButton.addEventListener('click', () => {
             cell.addEventListener('mouseover', () => {
@@ -58,28 +54,52 @@ function makeRows(rows, cols) {
             })
         })
 
+        //when cell is hovered, adding class of hovering
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = "rgb("+ r +","+ g +","+ b +")";
+        })
+
         resetButton.addEventListener('click', () => {
             cell.style.backgroundColor = 'white';
         })
     };
 };
 
-/* To-Do: 
-    Allow user to select amount of cells to make
-        either allow them to select the amount of cells (values need to be perfect squares)
-            or
-        allow to select number of columns which will then make an equal amount of rows
+//deletes all of the cells created and appended to container
+function removeCells() {
+    container.innerHTML = '';
+}
 
-        this can be in the form of:
-            sliding selector 
-            buttons with given values
-            input field
-    
-    Add reset button which will clear the classes on all cells
+let num = 16;
 
-    All user to select between:
-        rainbow mode: each cell hovered over receives a random color
-        increasing shade of black with each pass
-*/
+const sixteen = document.getElementById('button16');
+const eightteen = document.getElementById('button18');
+const twenty = document.getElementById('button20');
+const thirty = document.getElementById('button30');
 
-makeRows(16, 16);
+sixteen.addEventListener('click', () => {
+    num = 16;
+    removeCells();
+    makeRows(num, num);
+})
+
+eightteen.addEventListener('click', () => {
+    num = 18;
+    removeCells();
+    makeRows(num, num);
+})
+
+twenty.addEventListener('click', () => {
+    num = 20;
+    removeCells();
+    makeRows(num, num);
+})
+
+thirty.addEventListener('click', () => {
+    num = 30;
+    removeCells();
+    makeRows(num, num);
+})
+
+
+makeRows(num, num);
