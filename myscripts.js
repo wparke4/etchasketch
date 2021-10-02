@@ -72,7 +72,15 @@ function removeCells() {
 
 let num = 16;
 
-const sixteen = document.getElementById('button16');
+const slider = document.getElementById('valueSlider');
+
+slider.addEventListener('change', () => {
+    let num = slider.value;
+    removeCells();
+    makeRows(num, num);
+})
+
+/*const sixteen = document.getElementById('button16');
 const eightteen = document.getElementById('button18');
 const twenty = document.getElementById('button20');
 const thirty = document.getElementById('button30');
@@ -99,7 +107,7 @@ thirty.addEventListener('click', () => {
     num = 30;
     removeCells();
     makeRows(num, num);
-})
+})*/
 
 
 makeRows(num, num);
