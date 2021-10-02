@@ -70,6 +70,7 @@ function removeCells() {
     container.innerHTML = '';
 }
 
+//on page load, there will be 16 columns and 16 rows
 let num = 16;
 
 const slider = document.getElementById('valueSlider');
@@ -79,35 +80,5 @@ slider.addEventListener('change', () => {
     removeCells();
     makeRows(num, num);
 })
-
-/*const sixteen = document.getElementById('button16');
-const eightteen = document.getElementById('button18');
-const twenty = document.getElementById('button20');
-const thirty = document.getElementById('button30');
-
-sixteen.addEventListener('click', () => {
-    num = 16;
-    removeCells();
-    makeRows(num, num);
-})
-
-eightteen.addEventListener('click', () => {
-    num = 18;
-    removeCells();
-    makeRows(num, num);
-})
-
-twenty.addEventListener('click', () => {
-    num = 20;
-    removeCells();
-    makeRows(num, num);
-})
-
-thirty.addEventListener('click', () => {
-    num = 30;
-    removeCells();
-    makeRows(num, num);
-})*/
-
 
 makeRows(num, num);
