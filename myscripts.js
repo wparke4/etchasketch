@@ -74,11 +74,13 @@ function removeCells() {
 let num = 16;
 
 const slider = document.getElementById('valueSlider');
+const displayValue = document.querySelector('.displayValue');
 
 slider.addEventListener('change', () => {
     let num = slider.value;
     removeCells();
     makeRows(num, num);
+    displayValue.textContent = num + ' x ' + num;
 })
 
 makeRows(num, num);
