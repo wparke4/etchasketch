@@ -5,38 +5,47 @@ const randButton = document.getElementById('randButton');
 const resetButton = document.getElementById('resetButton');
 const rainbowButton = document.getElementById('rainbowButton');
 
+//defining r g b variables, initial value of 000 which is black
 let r = 0;
 let g = 0;
 let b = 0;
 
+//creating variable to be used to determine which color button was most recently selected
 let activeMode;
 
+//when eraser, black, rand, or rainbow button is clicked the associated code will then run
+//eraser, black, rand change value of activeMode then call on setColorValues function 
 eraserButton.addEventListener('click', () => {
     activeMode = 'eraser';
-    setMode(activeMode);
+    setColorValues(activeMode);
 })
 
 blackButton.addEventListener('click', () => {
     activeMode = 'black';
-    setMode(activeMode);
+    setColorValues(activeMode);
 })
 
 randButton.addEventListener('click', () => {
     activeMode = 'random';
-    setMode(activeMode);
+    setColorValues(activeMode);
 })
 
+//rainbow does not call on setMode function, just returns the activeMode which is now set to 'rainbow'
+//if activeMode = rainbow when cell is hovered over then the setColorValues will be called on to create a random color
+//therefore each cell hovered over will call the function and generate its own color
 rainbowButton.addEventListener('click', () => {
     activeMode = 'rainbow';
     return activeMode;
 })
 
+//used to generate a random integer between 0 and 255 inclusive (rgb each takes a value from 0 - 255)
 function randomNumber() {
     let number = Math.floor(Math.random() * 255);
     return number;
 }
 
-function setMode(activeMode) {
+//
+function setColorValues(activeMode) {
     if (activeMode === 'eraser') {
         r = 255;
         g = 255;
@@ -76,11 +85,12 @@ function makeRows(rows, cols) {
         //when cell is hovered, adding class of hovering
         cell.addEventListener('mouseover', () => {
             if (activeMode === 'rainbow') {
-                setMode(activeMode);
+                setColorValues(activeMode);
             }
             cell.style.backgroundColor = "rgb("+ r +","+ g +","+ b +")";
         })
 
+        //all cells reset back to white when reset button is clicked
         resetButton.addEventListener('click', () => {
             cell.style.backgroundColor = 'white';
         })
@@ -100,6 +110,7 @@ let num = 16;
 const slider = document.getElementById('valueSlider');
 const displayValue = document.querySelector('.displayValue');
 
+//when the slider value changes, existing cells are deleted and new cells created
 slider.addEventListener('change', () => {
     let num = slider.value;
     removeCells();
