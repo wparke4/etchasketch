@@ -15,6 +15,20 @@
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
 }
 
 .cellContainer {
@@ -30,9 +44,4 @@ body {
 .grid-item {
     border: 1px solid black;
     text-align: center;
-}
-
-/* class added when a cell is hovered over*/
-.hovering {
-
 }

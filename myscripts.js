@@ -9,28 +9,56 @@ let r = 0;
 let g = 0;
 let b = 0;
 
+let activeMode;
+
 eraserButton.addEventListener('click', () => {
-    r = 255;
-    g = 255;
-    b = 255;
+    activeMode = 'eraser';
+    setMode(activeMode);
 })
 
 blackButton.addEventListener('click', () => {
-    r = 0;
-    g = 0;
-    b = 0;
+    activeMode = 'black';
+    setMode(activeMode);
 })
 
 randButton.addEventListener('click', () => {
-    r = randomNumber();
-    g = randomNumber();
-    b = randomNumber();
+    activeMode = 'random';
+    setMode(activeMode);
+})
+
+rainbowButton.addEventListener('click', () => {
+    activeMode = 'rainbow';
+    return activeMode;
 })
 
 function randomNumber() {
     let number = Math.floor(Math.random() * 255);
     return number;
 }
+
+function setMode(activeMode) {
+    if (activeMode === 'eraser') {
+        r = 255;
+        g = 255;
+        b = 255;
+    }
+    else if (activeMode === 'black') {
+        r = 0;
+        g = 0;
+        b = 0;
+    } 
+    else if (activeMode === 'random') {
+        r = randomNumber();
+        g = randomNumber();
+        b = randomNumber();
+    }
+    else if (activeMode === 'rainbow') {
+        r = randomNumber();
+        g = randomNumber();
+        b = randomNumber();
+    }
+    }
+
 
 function makeRows(rows, cols) {
     //set the css variables (--grid-rows) equal to the argument passed into this function
@@ -47,16 +75,10 @@ function makeRows(rows, cols) {
 
         //when cell is hovered, adding class of hovering
         cell.addEventListener('mouseover', () => {
+            if (activeMode === 'rainbow') {
+                setMode(activeMode);
+            }
             cell.style.backgroundColor = "rgb("+ r +","+ g +","+ b +")";
-        })
-
-        rainbowButton.addEventListener('click', () => {
-            cell.addEventListener('mouseover', () => {
-                r = randomNumber();
-                g = randomNumber();
-                b = randomNumber();``
-                cell.style.backgroundColor = "rgb("+ r +","+ g +","+ b +")";
-            })
         })
 
         resetButton.addEventListener('click', () => {
