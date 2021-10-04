@@ -45,18 +45,18 @@ function makeRows(rows, cols) {
         container.appendChild(cell);
         cell.classList.add('grid-item');
 
+        //when cell is hovered, adding class of hovering
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = "rgb("+ r +","+ g +","+ b +")";
+        })
+
         rainbowButton.addEventListener('click', () => {
             cell.addEventListener('mouseover', () => {
                 r = randomNumber();
                 g = randomNumber();
-                b = randomNumber();
+                b = randomNumber();``
                 cell.style.backgroundColor = "rgb("+ r +","+ g +","+ b +")";
             })
-        })
-
-        //when cell is hovered, adding class of hovering
-        cell.addEventListener('mouseover', () => {
-            cell.style.backgroundColor = "rgb("+ r +","+ g +","+ b +")";
         })
 
         resetButton.addEventListener('click', () => {
@@ -64,6 +64,8 @@ function makeRows(rows, cols) {
         })
     };
 };
+
+
 
 //deletes all of the cells created and appended to container
 function removeCells() {
