@@ -7,14 +7,38 @@
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
+    --r: 0;
+    --g: 0;
+    --b: 0;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    padding-left: 50px;
 }
 
 .cellContainer {
+        padding-right: 50px;
         height: 500px;
         width: 500px;
         display: grid;
@@ -27,17 +51,4 @@ body {
 .grid-item {
     border: 1px solid black;
     text-align: center;
-}
-
-/* class added when a cell is hovered over*/
-.eraser {
-    background-color: white;
-}
-
-.black {
-    background-color: black;
-}
-
-.random {
-
 }
